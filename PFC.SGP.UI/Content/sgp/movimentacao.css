@@ -1,0 +1,40 @@
+﻿@charset "UTF-8";
+#noti-title {
+    font-size: large;
+    padding: 0;
+    margin: 0;
+    color: white;
+}
+
+#noti-title-container {
+    background-color: #003b85;
+    padding: 10px;
+}
+
+#noti-notification-container {
+    background-color: #003b85;
+    margin-top: 10px;
+    padding: 10px;
+    border-bottom: 3px solid white;
+}
+
+#divisor {
+    float: none;
+    overflow-y: auto;
+}
+
+#button-show-dismiss {
+    background-color: #003b85;
+    border: none;
+    font-size: large;
+    padding: 0;
+    margin: 0;
+    color: white;
+}
+
+#imageteste {
+    width: 25px;
+    height: 25px;
+    border-radius: 30px;
+    float: right;
+}
