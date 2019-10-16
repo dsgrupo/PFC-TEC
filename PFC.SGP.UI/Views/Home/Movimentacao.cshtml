@@ -1,0 +1,203 @@
+﻿@using PFC.SGP.UI.ViewModels.Home.Dashboard;
+
+@{
+    ViewBag.Title = "Movimentação";
+}
+
+@section links
+{
+    <link href="~/Content/sgp/movimentacao.css" rel="stylesheet" />
+}
+
+<div id="noti-title-container">
+    <label id="noti-title">Histórico de movimentação do status</label>
+</div>
+<div id="noti-notification-container">
+    <label id="noti-title">Sem status para verde</label>
+    <img src="~/Resource/nostatusverde.png" alt="Teste" id="imageteste">
+</div>
+<div id="divisor">
+    <ul class="list-group">
+        @{
+            if (((List<TrabalhoDashboardVM>)ViewBag.Trabalhos90DiasNotificacao).Count() <= 0)
+            {
+                <li class="list-group-item list-group-item-success">Nenhum registro encontrado.</li>
+            }
+            else
+            {
+                foreach (TrabalhoDashboardVM trab in ViewBag.Trabalhos90DiasNotificacao)
+                {
+                    <li class="list-group-item list-group-item-danger">
+                        <button class="btn btn-aluno d-block"
+                                data-toggle="modal" data-target="#detalhesModalNotificacao"
+                                data-nome-trabalho="@trab.Nome"
+                                data-codigo-orientador="@trab.Orientador.Codigo"
+                                data-nome-orientador="@trab.Orientador.Nome"
+                                data-sobrenome-orientador="@trab.Orientador.Sobrenome"
+                                data-email-orientador="@trab.Orientador.Email"
+                                data-telefone-orientador="@trab.Orientador.Telefone"
+                                data-matricula-aluno="@trab.Aluno.Matricula"
+                                data-nome-aluno="@trab.Aluno.Nome"
+                                data-sobrenome-aluno="@trab.Aluno.Sobrenome"
+                                data-email-aluno="@trab.Aluno.Email"
+                                data-telefone-aluno="@trab.Aluno.Telefone">
+                            @trab.Nome
+                        </button>
+                    </li>
+                }
+            }
+        }
+    </ul>
+</div>
+<div id="noti-notification-container">
+    <label id="noti-title">Verde para amarelo</label>
+    <img src="~/Resource/verdeamarelo.png" alt="Teste" id="imageteste">
+</div>
+<div id="divisor">
+    <ul class="list-group">
+        @{
+            if (((List<TrabalhoDashboardVM>)ViewBag.Trabalhos30DiasNotificacao).Count() <= 0)
+            {
+                <li class="list-group-item list-group-item-warning">Nenhum registro encontrado.</li>
+            }
+            else
+            {
+                foreach (TrabalhoDashboardVM trab in ViewBag.Trabalhos30DiasNotificacao)
+                {
+                    <li class="list-group-item list-group-item-warning">
+                        <button class="btn btn-aluno d-block"
+                                data-toggle="modal" data-target="#detalhesModalNotificacao"
+                                data-nome-trabalho="@trab.Nome"
+                                data-codigo-orientador="@trab.Orientador.Codigo"
+                                data-nome-orientador="@trab.Orientador.Nome"
+                                data-sobrenome-orientador="@trab.Orientador.Sobrenome"
+                                data-email-orientador="@trab.Orientador.Email"
+                                data-telefone-orientador="@trab.Orientador.Telefone"
+                                data-matricula-aluno="@trab.Aluno.Matricula"
+                                data-nome-aluno="@trab.Aluno.Nome"
+                                data-sobrenome-aluno="@trab.Aluno.Sobrenome"
+                                data-email-aluno="@trab.Aluno.Email"
+                                data-telefone-aluno="@trab.Aluno.Telefone">
+                            @trab.Nome
+                        </button>
+                    </li>
+                }
+            }
+        }
+    </ul>
+</div>
+<div id="noti-notification-container">
+    <label id="noti-title">Amarelo para vermelho</label>
+    <img alt="ttfaz" src="~/Resource/amarelovermelho.png" id="imageteste">
+</div>
+<div id="divisor">
+    <ul class="list-group">
+        @{
+            if (((List<TrabalhoDashboardVM>)ViewBag.Trabalhos15DiasNotificacao).Count() <= 0)
+            {
+                <li class="list-group-item list-group-item-danger">Nenhum registro encontrado.</li>
+            }
+            else
+            {
+                foreach (TrabalhoDashboardVM trab in ViewBag.Trabalhos15DiasNotificacao)
+                {
+                    <li class="list-group-item list-group-item-danger">
+                        <button class="btn btn-aluno d-block"
+                                data-toggle="modal" data-target="#detalhesModalNotificacao"
+                                data-nome-trabalho="@trab.Nome"
+                                data-codigo-orientador="@trab.Orientador.Codigo"
+                                data-nome-orientador="@trab.Orientador.Nome"
+                                data-sobrenome-orientador="@trab.Orientador.Sobrenome"
+                                data-email-orientador="@trab.Orientador.Email"
+                                data-telefone-orientador="@trab.Orientador.Telefone"
+                                data-matricula-aluno="@trab.Aluno.Matricula"
+                                data-nome-aluno="@trab.Aluno.Nome"
+                                data-sobrenome-aluno="@trab.Aluno.Sobrenome"
+                                data-email-aluno="@trab.Aluno.Email"
+                                data-telefone-aluno="@trab.Aluno.Telefone">
+                            @trab.Nome
+                        </button>
+                    </li>
+                }
+            }
+        }
+    </ul>
+</div>
+
+
+<div class="modal fade" id="detalhesModalNotificacao" tabindex="-1" role="dialog" aria-labelledby="detalhesModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="detalhesModalTitle">Visualizando trabalho</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h5 id="detalhes-aluno-title">Detalhes do aluno</h5>
+                <div id="detalhesAluno">
+                    <div class="form-group row">
+                        <div class="col-md-4">
+                            <label for="txtMatricula">Matricula</label>
+                            <input type="text" class="form-control" id="txtMatricula" readonly>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="txtNomeAluno">Nome</label>
+                            <input type="text" class="form-control" id="txtNomeAluno" readonly>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="txtSobrenomeAluno">Sobrenome</label>
+                            <input type="text" class="form-control" id="txtSobrenomeAluno" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            <label for="txtTelefoneAluno">Telefone</label>
+                            <input type="text" class="form-control" id="txtTelefoneAluno" readonly>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="txtEmailAluno">E-mail</label>
+                            <input type="text" class="form-control" id="txtEmailAluno" readonly>
+                        </div>
+                    </div>
+                </div>
+                <h5 id="detalhes-orientador-title">Detalhes do orientador</h5>
+                <div id="detalhesOrientador">
+                    <div class="form-group row">
+                        <div class="col-md-4">
+                            <label for="txtCodigo">Código</label>
+                            <input type="text" class="form-control" id="txtCodigo" readonly>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="txtNomeOrientador">Nome</label>
+                            <input type="text" class="form-control" id="txtNomeOrientador" readonly>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="txtSobrenomeOrientador">Sobrenome</label>
+                            <input type="text" class="form-control" id="txtSobrenomeOrientador" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            <label for="txtTelefoneOrientador">Telefone</label>
+                            <input type="text" class="form-control" id="txtTelefoneOrientador" readonly>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="txtEmailOrientador">E-mail</label>
+                            <input type="text" class="form-control" id="txtEmailOrientador" readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary col-md-12" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+    {
+    <script src="~/Scripts/sgp/home/Movimentacao.js"></script>
+}

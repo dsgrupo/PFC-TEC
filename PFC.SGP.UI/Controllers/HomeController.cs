@@ -35,6 +35,17 @@ namespace PFC.SGP.UI.Controllers
             return View();
         }
 
+        public ViewResult Movimentacao()
+        {
+            ViewBag.Trabalhos = ObterListaTrabalhos().ToTrabalhoDashboardVM();
+            DateTime dataAtual = DateTime.Now;
+            ViewBag.Trabalhos15DiasNotificacao = ObterListaTrabalhos15DiasNotificacao(dataAtual);
+            ViewBag.Trabalhos30DiasNotificacao = ObterListaTrabalhos30DiasNotificacao(dataAtual);
+            ViewBag.Trabalhos90DiasNotificacao = ObterListaTrabalhos90DiasNotificacao(dataAtual);
+            return View();
+        }
+
+
         public ViewResult Sobre()
         {
             return View();
@@ -117,6 +128,74 @@ namespace PFC.SGP.UI.Controllers
             }
 
             return trabalhos30Dias;
+        }
+
+        // Metodos Notificação
+
+        private List<TrabalhoDashboardVM> ObterListaTrabalhos15DiasNotificacao(DateTime dataAtual)
+        {
+            List<TrabalhoDashboardVM> trabalhosAtivos = ObterListaTrabalhos().ToTrabalhoDashboardVM().ToList();
+            List<TrabalhoDashboardVM> trabalhos15Dias = new List<TrabalhoDashboardVM>();
+
+            DateTime dataMaxima;
+            DateTime dataMinima;
+
+            foreach (TrabalhoDashboardVM trab in trabalhosAtivos)
+            {
+                dataMaxima = new DateTime(int.Parse(trab.AnoApresentacao), int.Parse(trab.MesApresentacao), 1);
+                TimeSpan diferenca = Convert.ToDateTime(dataMaxima) - Convert.ToDateTime(dataAtual);
+                int distancia = diferenca.Days;
+                if (distancia <=15 && distancia > 5  )
+                {
+                    trabalhos15Dias.Add(trab);
+                }
+            }
+
+            return trabalhos15Dias;
+        }
+
+        private List<TrabalhoDashboardVM> ObterListaTrabalhos30DiasNotificacao(DateTime dataAtual)
+        {
+            List<TrabalhoDashboardVM> trabalhosAtivos = ObterListaTrabalhos().ToTrabalhoDashboardVM().ToList();
+            List<TrabalhoDashboardVM> trabalhos30Dias = new List<TrabalhoDashboardVM>();
+
+            DateTime dataMaxima;
+            DateTime dataMinima;
+
+            foreach (TrabalhoDashboardVM trab in trabalhosAtivos)
+            {
+                dataMaxima = new DateTime(int.Parse(trab.AnoApresentacao), int.Parse(trab.MesApresentacao), 1);
+                TimeSpan diferenca = Convert.ToDateTime(dataMaxima) - Convert.ToDateTime(dataAtual);
+                int distancia = diferenca.Days;
+                if (distancia <= 30 && distancia > 20)
+                {
+                    trabalhos30Dias.Add(trab);
+                }
+            }
+
+            return trabalhos30Dias;
+        }
+
+        private List<TrabalhoDashboardVM> ObterListaTrabalhos90DiasNotificacao(DateTime dataAtual)
+        {
+            List<TrabalhoDashboardVM> trabalhosAtivos = ObterListaTrabalhos().ToTrabalhoDashboardVM().ToList();
+            List<TrabalhoDashboardVM> trabalhos90Dias = new List<TrabalhoDashboardVM>();
+
+            DateTime dataMaxima;
+            DateTime dataMinima;
+
+            foreach (TrabalhoDashboardVM trab in trabalhosAtivos)
+            {
+                dataMaxima = new DateTime(int.Parse(trab.AnoApresentacao), int.Parse(trab.MesApresentacao), 1);
+                TimeSpan diferenca = Convert.ToDateTime(dataMaxima) - Convert.ToDateTime(dataAtual);
+                int distancia = diferenca.Days;
+                if (distancia <= 90 && distancia > 80)
+                {
+                    trabalhos90Dias.Add(trab);
+                }
+            }
+
+            return trabalhos90Dias;
         }
     }
 }

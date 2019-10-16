@@ -106,8 +106,12 @@
 
 
                                 <button class="btn btn-link nav-link" href="#" data-toggle="modal" data-target="#modalMudarSenha"><i class="fas fa-key"></i> Alterar senha</button>
+                                @if (!User.Identity.Name.Equals("admin"))
+                                {
+                                    <a class="nav-link" href="~/Home/Movimentacao"><i class="fas fa-bell"></i> Movimentação</a>
+                                }
 
-                                <a class="nav-link" href="@Url.Action("Sair","Conta")"><i class="fa fa-power-off"></i> Sair</a>
+                                    <a class="nav-link" href="@Url.Action("Sair","Conta")"><i class="fa fa-power-off"></i> Sair</a>
                             </div>
                         </div>
 

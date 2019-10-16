@@ -137,11 +137,15 @@
     <Content Include="Content\sgp\error.css" />
     <Content Include="Content\sgp\info-override.css" />
     <Content Include="Content\sgp\login.css" />
+    <Content Include="Content\sgp\movimentacao.css" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="Global.asax" />
+    <Content Include="Resource\amarelovermelho.png" />
     <Content Include="Resource\large-logo.png" />
+    <Content Include="Resource\nostatusverde.png" />
     <Content Include="Resource\spg-icon.png" />
+    <Content Include="Resource\verdeamarelo.png" />
     <Content Include="Scripts\bootstrap-select.js" />
     <Content Include="Scripts\bootstrap-select.min.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -306,6 +310,7 @@
     <Content Include="Scripts\sgp\conta\Index.js" />
     <Content Include="Scripts\sgp\cursos\Index.js" />
     <Content Include="Scripts\sgp\home\Index.js" />
+    <Content Include="Scripts\sgp\home\Movimentacao.js" />
     <Content Include="Scripts\sgp\orientadores\Index.js" />
     <Content Include="Scripts\sgp\trabalhos\Add.js" />
     <Content Include="Scripts\sgp\trabalhos\Edit.js" />
@@ -388,6 +393,7 @@
     <Content Include="Views\Erro\Unauthorized.cshtml" />
     <Content Include="Views\Erro\E404.cshtml" />
     <Content Include="Views\Conta\Add.cshtml" />
+    <Content Include="Views\Home\Movimentacao.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
