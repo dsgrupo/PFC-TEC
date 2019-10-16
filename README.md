@@ -3,13 +3,13 @@
 </p>
 <hr/>
 <blockquote>
-O primeiro módulo do projeto final do curso técnico, codificado por mim.
+O primeiro módulo do projeto final do curso técnico.
 </blockquote>
 
 ### Conteúdos abordados
 * [Sobre o PFC](#PFC)
 * [Estrutura do Projeto](#Projeto)
-* [Desenvolvedor](#Desenvolvedor)
+* [Desenvolvedores](#Desenvolvedores)
 * [Funcionalidades](#Funcionalidades)
 * [Licença](#Licença)
 
@@ -19,8 +19,9 @@ O primeiro módulo do projeto final do curso técnico, codificado por mim.
 ### <a name="Projeto"></a>Estrutura do Projeto
 <p>A solução é dividida em alguns projetos, o projeto <strong>Data</strong> tem como dependência principal o Entity Framework, nesse projeto são realizadas as configurações das entidades a serem persistidas no banco, bem como a definição de algumas operações de persistência, merge, exclusão e busca. O projeto <strong>Domain</strong> comporta tudo - ou quase tudo - aquilo que não possui nenhuma dependência externa, e roda apenas com a referencia do assembly Microsoft.CSharp, nesse projeto estão interfaces que estabelecem contratos, entidades que são persistidas no banco, classes de segurança entre outros. O projeto <strong>UI</strong> é o projeto asp.net mvc, a camada visual da aplicação, que depende dos outros projetos, nesse projeto temos as views, controllers, viewmodels, arquivos css e js (customizados e de bibliotecas de terceiros, como o bootstrap) e arquivos de configuração.</p>
 
-### <a name="Desenvolvedor"></a>Desenvolvedor
+### <a name="Desenvolvedores"></a>Desenvolvedores
 * "Eduardo Correia" <correiaeduardojr@gmail.com>
+* "Felipe Bastos" <felipepradobastos@gmail.com>
 
 ### <a name="Funcionalidades"></a>Funcionalidades
 - [x] Gerenciar trabalhos (Criar, atualizar, excluir, buscar com filtro);
@@ -30,6 +31,7 @@ O primeiro módulo do projeto final do curso técnico, codificado por mim.
 - [x] Gerenciar coordenadores (Criar, atualizar, excluir, buscar com filtro);
 - [x] Gerenciar cursos (Criar, atualizar, excluir, buscar com filtro);
 - [x] Obter resumo dos trabalhos a serem apresentados, como listas organizadas e categorizadas por proximidade da data final;
+- [x] Obter resumo das movimentações de status dos trabalhos a serem apresentados, como listas organizadas e categorizadas por proximidade da data final.
 
 ### <a name="Licença"></a>Licença
 <p><strong>MIT</strong> - "A short and simple permissive license with conditions only requiring preservation of copyright and license notices. Licensed works, modifications, and larger works may be distributed under different terms and without source code."</p>
