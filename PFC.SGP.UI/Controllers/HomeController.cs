@@ -25,7 +25,16 @@ namespace PFC.SGP.UI.Controllers
             _orientadorRepository = orientadorRepository;
         }
 
-        public ViewResult Index()
+        public ActionResult Index()
+        {
+            if (User.Identity.Name.Equals("admin"))
+            {
+                return RedirectToAction("Dashboard", "Home");
+            }
+            return RedirectToAction("Movimentacao", "Home");
+        }
+
+        public ActionResult Dashboard()
         {
             ViewBag.Trabalhos = ObterListaTrabalhos().ToTrabalhoDashboardVM();
             DateTime dataAtual = DateTime.Now;
@@ -34,7 +43,7 @@ namespace PFC.SGP.UI.Controllers
             ViewBag.Trabalhos90Dias = ObterListaTrabalhos90Dias(dataAtual);
             return View();
         }
-
+        [CustomAuthorize(Roles = "Coordenador")]
         public ViewResult Movimentacao()
         {
             ViewBag.Trabalhos = ObterListaTrabalhos().ToTrabalhoDashboardVM();

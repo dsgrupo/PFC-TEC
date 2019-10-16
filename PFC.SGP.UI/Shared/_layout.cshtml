@@ -24,7 +24,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="/">
+                <a class="navbar-brand" href="~/Home/Dashboard">
                     <img src="~/Resource/spg-icon.png" alt="Logo" class="w-50 h-50">
                 </a>
             </div>
@@ -34,7 +34,7 @@
                     @if (!User.Identity.Name.Equals("admin"))
                     {
                         <li class="menu-single">
-                            <a href="/"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                            <a href="~/Home/Dashboard"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                         </li>
 
                         <li class="menu-title mt-2 mb-2">Controle</li><!-- /.menu-title -->
