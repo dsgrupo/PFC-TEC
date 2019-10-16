@@ -27,7 +27,23 @@
             {
                 foreach (TrabalhoDashboardVM trab in ViewBag.Trabalhos90DiasNotificacao)
                 {
-                    <li class="list-group-item list-group-item-success"></li>
+                    <li class="list-group-item list-group-item-danger">
+                        <button class="btn btn-aluno d-block"
+                                data-toggle="modal" data-target="#detalhesModalNotificacao"
+                                data-nome-trabalho="@trab.Nome"
+                                data-codigo-orientador="@trab.Orientador.Codigo"
+                                data-nome-orientador="@trab.Orientador.Nome"
+                                data-sobrenome-orientador="@trab.Orientador.Sobrenome"
+                                data-email-orientador="@trab.Orientador.Email"
+                                data-telefone-orientador="@trab.Orientador.Telefone"
+                                data-matricula-aluno="@trab.Aluno.Matricula"
+                                data-nome-aluno="@trab.Aluno.Nome"
+                                data-sobrenome-aluno="@trab.Aluno.Sobrenome"
+                                data-email-aluno="@trab.Aluno.Email"
+                                data-telefone-aluno="@trab.Aluno.Telefone">
+                            @trab.Nome
+                        </button>
+                    </li>
                 }
             }
         }
@@ -48,8 +64,23 @@
             {
                 foreach (TrabalhoDashboardVM trab in ViewBag.Trabalhos30DiasNotificacao)
                 {
-                    <li class="list-group-item list-group-item-warning">@trab.Aluno, @trab.Nome</li>
-                    <li class="list-group-item list-group-item-warning"><a data-toggle=""></a></li>
+                    <li class="list-group-item list-group-item-warning">
+                        <button class="btn btn-aluno d-block"
+                                data-toggle="modal" data-target="#detalhesModalNotificacao"
+                                data-nome-trabalho="@trab.Nome"
+                                data-codigo-orientador="@trab.Orientador.Codigo"
+                                data-nome-orientador="@trab.Orientador.Nome"
+                                data-sobrenome-orientador="@trab.Orientador.Sobrenome"
+                                data-email-orientador="@trab.Orientador.Email"
+                                data-telefone-orientador="@trab.Orientador.Telefone"
+                                data-matricula-aluno="@trab.Aluno.Matricula"
+                                data-nome-aluno="@trab.Aluno.Nome"
+                                data-sobrenome-aluno="@trab.Aluno.Sobrenome"
+                                data-email-aluno="@trab.Aluno.Email"
+                                data-telefone-aluno="@trab.Aluno.Telefone">
+                            @trab.Nome
+                        </button>
+                    </li>
                 }
             }
         }
