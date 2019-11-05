@@ -22,7 +22,7 @@ namespace PFC.SGP.UI.ViewModels
         public string Codigo { get; set; }
 
         [RegularExpression(@"^(([a-zA-Z\u00C0-\u00FF]{2,})+( ?[a-zA-Z\u00C0-\u00FF]+)+)$",
-            ErrorMessage = "Este não parece um sobrenome válido.")]
+            ErrorMessage = "Este não parece um nome válido.")]
         [Required]
         [StringLength(50)]
         public string Nome { get; set; }
