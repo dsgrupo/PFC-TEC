@@ -38,9 +38,10 @@ namespace PFC.SGP.UI.Controllers
         {
             ViewBag.Trabalhos = ObterListaTrabalhos().ToTrabalhoDashboardVM();
             DateTime dataAtual = DateTime.Now;
-            ViewBag.Trabalhos15Dias = ObterListaTrabalhos15Dias(dataAtual);
-            ViewBag.Trabalhos30Dias = ObterListaTrabalhos30Dias(dataAtual);
-            ViewBag.Trabalhos90Dias = ObterListaTrabalhos90Dias(dataAtual);
+            List<TrabalhoDashboardVM> trabalhosAtivos = ObterListaTrabalhos().ToTrabalhoDashboardVM().ToList();
+            ViewBag.Trabalhos15Dias = ObterListaTrabalhos15Dias(dataAtual, trabalhosAtivos);
+            ViewBag.Trabalhos30Dias = ObterListaTrabalhos30Dias(dataAtual, trabalhosAtivos);
+            ViewBag.Trabalhos90Dias = ObterListaTrabalhos90Dias(dataAtual, trabalhosAtivos);
             return View();
         }
         [CustomAuthorize(Roles = "Coordenador")]
@@ -76,9 +77,8 @@ namespace PFC.SGP.UI.Controllers
             return _orientadorRepository.Find(User.Identity.Name).ToList();
         }
 
-        private List<TrabalhoDashboardVM> ObterListaTrabalhos15Dias(DateTime dataAtual)
+        private List<TrabalhoDashboardVM> ObterListaTrabalhos15Dias(DateTime dataAtual, List<TrabalhoDashboardVM> trabalhosAtivos)
         {
-            List<TrabalhoDashboardVM> trabalhosAtivos = ObterListaTrabalhos().ToTrabalhoDashboardVM().ToList();
             List<TrabalhoDashboardVM> trabalhos15Dias = new List<TrabalhoDashboardVM>();
 
             DateTime dataMaxima;
@@ -97,9 +97,8 @@ namespace PFC.SGP.UI.Controllers
             return trabalhos15Dias;
         }
 
-        private List<TrabalhoDashboardVM> ObterListaTrabalhos30Dias(DateTime dataAtual)
+        private List<TrabalhoDashboardVM> ObterListaTrabalhos30Dias(DateTime dataAtual, List<TrabalhoDashboardVM> trabalhosAtivos)
         {
-            List<TrabalhoDashboardVM> trabalhosAtivos = ObterListaTrabalhos().ToTrabalhoDashboardVM().ToList();
             List<TrabalhoDashboardVM> trabalhos30Dias = new List<TrabalhoDashboardVM>();
 
             DateTime dataMaxima;
@@ -118,9 +117,8 @@ namespace PFC.SGP.UI.Controllers
             return trabalhos30Dias;
         }
 
-        private List<TrabalhoDashboardVM> ObterListaTrabalhos90Dias(DateTime dataAtual)
+        private List<TrabalhoDashboardVM> ObterListaTrabalhos90Dias(DateTime dataAtual, List<TrabalhoDashboardVM> trabalhosAtivos)
         {
-            List<TrabalhoDashboardVM> trabalhosAtivos = ObterListaTrabalhos().ToTrabalhoDashboardVM().ToList();
             List<TrabalhoDashboardVM> trabalhos30Dias = new List<TrabalhoDashboardVM>();
 
             DateTime dataMaxima;
