@@ -15,5 +15,10 @@ namespace PFC.SGP.Domain.Entities
 
         public virtual Orientador Orientador { get; set; }
 
+        public override string ToString()
+        {
+            //TODO
+            return base.ToString();
+        }
     }
 }
