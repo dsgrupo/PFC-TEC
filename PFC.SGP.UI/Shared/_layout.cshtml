@@ -39,35 +39,23 @@
 
                         <li class="menu-title mt-2 mb-2">Controle</li><!-- /.menu-title -->
 
-                        <li class="menu-item-has-children dropdown">
-                            <a href="#" class="menu-title dropdown-toggle" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Trabalhos</a>
-                            <ul class="sub-menu children dropdown-menu">
-                                <li><i class="fa fa-bars"></i><a href="~/Trabalhos">Relação de trabalhos</a></li>
-                                <li><i class="fa fa-puzzle-piece"></i><a href="~/Trabalhos/Add">Cadastrar trabalho</a></li>
-                            </ul>
+                        <li class="title-sub-menu">
+                            <a href="~/Trabalhos"> <i class="menu-icon fa fa-puzzle-piece"></i>Trabalhos</a>
                         </li>
 
-                        <li class="menu-item-has-children dropdown">
-                            <a href="#" class="menu-title dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fas fa-user-graduate"></i>Alunos</a>
-                            <ul class="sub-menu children dropdown-menu">
-                                <li><i class="fa fa-bars"></i><a href="~/Alunos">Relação de alunos</a></li>
-                                <li><i class="fa fa-puzzle-piece"></i><a href="~/Alunos/Add">Cadastrar aluno</a></li>
-                            </ul>
+                        <li class="title-sub-menu">
+                            <a href="~/Alunos"> <i class="menu-icon fas fa-user-graduate"></i>Alunos</a>
                         </li>
 
-                        <li class="menu-item-has-children dropdown">
-                            <a href="#" class="menu-title dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fas fa-chalkboard-teacher"></i>Orientadores</a>
-                            <ul class="sub-menu children dropdown-menu">
-                                <li><i class="fa fa-bars"></i><a href="~/Orientadores/">Relação de orientadores</a></li>
-                                <li><i class="fa fa-puzzle-piece"></i><a href="~/Orientadores/Add">Cadastrar orientador</a></li>
-                            </ul>
+                        <li class="title-sub-menu">
+                            <a href="~/Orientadores"> <i class="menu-icon fas fa-chalkboard-teacher"></i>Orientadores</a>
                         </li>
 
-                        <li class="menu-title mt-2 mb-2">Manutenção</li><!-- /.menu-title -->
-
-                        <li class="menu-single menu-turmas">
-                            <a href="~/Turmas"> <i class="menu-icon fas fa-users"></i>Turmas </a>
+                        <li class="title-sub-menu">
+                            <a href="~/Turmas"> <i class="menu-icon fas fa-users"></i>Turmas</a>
                         </li>
+
+                        
                     }
 
                     @if (User.Identity.Name.Equals("admin"))

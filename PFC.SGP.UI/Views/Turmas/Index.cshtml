@@ -2,12 +2,13 @@
 @model List<TurmaVM>
 @{
     ViewBag.Title = "Relação de turmas";
+    ViewBag.Description = "Relação de turmas coordenadas por você.";
 }
 
 <div class="app-header">
     <button class="btn btn-primary app-header-btn" data-toggle="modal" data-target="#modalCadastroTurma">Nova</button>
     <h3 class="app-title">Relação de Turmas</h3>
-    <p>Relação de turmas coordenadas por você.</p>
+    <p>@ViewBag.Description</p>
 </div>
 <table id="table_id" class="table table-hover table-responsive table-reactive">
     <thead class="bg-primary text-white">

@@ -2,9 +2,14 @@
 @model List<TrabalhoVM>
 @{
     ViewBag.Title = "Relação de trabalhos";
+    ViewBag.Description = "Relação de trabalhos coordenados por você.";
 }
 
-<h3 class="border-bottom border-secondary pb-2 mt-4 mb-5">@ViewBag.Title</h3>
+<div class="app-header">
+    <a class="btn btn-primary app-header-btn" href="~/Trabalhos/Add">Novo</a>
+    <h3 class="app-title">@ViewBag.Title</h3>
+    <p>@ViewBag.Description</p>
+</div>
 <table id="table_id" class="table table table-hover table-responsive table-reactive">
     <thead class="bg-primary text-white">
         <tr>

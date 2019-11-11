@@ -2,7 +2,12 @@
     background-color: #003b85;
     border-color: #003b85;
 }
-
+.title-sub-menu {
+    border-bottom: 1px dashed white;
+}
+.title-sub-menu:last-child {
+    margin-bottom: 15px;
+}
 .menu-single {
     color: #9496a1;
     clear: both;
