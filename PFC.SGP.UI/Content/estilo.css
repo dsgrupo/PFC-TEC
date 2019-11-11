@@ -2,6 +2,9 @@
     background-color: #003b85;
     border-color: #003b85;
 }
+.force-table-responsive{
+    overflow-x: auto;
+}
 .title-sub-menu {
     border-bottom: 1px dashed white;
 }
