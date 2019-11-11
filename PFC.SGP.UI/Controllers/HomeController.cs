@@ -39,6 +39,7 @@ namespace PFC.SGP.UI.Controllers
             ViewBag.Trabalhos = ObterListaTrabalhos().ToTrabalhoDashboardVM();
             DateTime dataAtual = DateTime.Now;
             List<TrabalhoDashboardVM> trabalhosAtivos = ObterListaTrabalhos().ToTrabalhoDashboardVM().ToList();
+            ViewBag.TrabalhosAtrasados = ObterListaTrabalhosAtrasados(dataAtual, trabalhosAtivos);
             ViewBag.Trabalhos15Dias = ObterListaTrabalhos15Dias(dataAtual, trabalhosAtivos);
             ViewBag.Trabalhos30Dias = ObterListaTrabalhos30Dias(dataAtual, trabalhosAtivos);
             ViewBag.Trabalhos90Dias = ObterListaTrabalhos90Dias(dataAtual, trabalhosAtivos);
@@ -75,6 +76,26 @@ namespace PFC.SGP.UI.Controllers
         private List<Orientador> ObterListaOrientadores()
         {
             return _orientadorRepository.Find(User.Identity.Name).ToList();
+        }
+
+        private List<TrabalhoDashboardVM> ObterListaTrabalhosAtrasados(DateTime dataAtual, List<TrabalhoDashboardVM> trabalhosAtivos)
+        {
+            List<TrabalhoDashboardVM> trabalhosAtrasados = new List<TrabalhoDashboardVM>();
+
+            DateTime dataMaxima;
+            DateTime dataMinima;
+
+            foreach (TrabalhoDashboardVM trab in trabalhosAtivos)
+            {
+                dataMaxima = new DateTime(int.Parse(trab.AnoApresentacao), int.Parse(trab.MesApresentacao), 1);
+                dataMinima = DateTime.MinValue;
+                if (dataAtual > dataMaxima)
+                {
+                    trabalhosAtrasados.Add(trab);
+                }
+            }
+
+            return trabalhosAtrasados;
         }
 
         private List<TrabalhoDashboardVM> ObterListaTrabalhos15Dias(DateTime dataAtual, List<TrabalhoDashboardVM> trabalhosAtivos)

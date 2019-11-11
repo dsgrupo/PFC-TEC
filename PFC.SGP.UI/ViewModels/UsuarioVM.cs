@@ -12,8 +12,8 @@ namespace PFC.SGP.UI.ViewModels
         }
 
         [Required, StringLength(100)]
-        [RegularExpression(@"^(([a-zA-Z0-9\u00C0-\u00FF]{1})+)$",
-            ErrorMessage = "Este não parece um login válido, digite apenas o login, sem espaços.")]
+        [RegularExpression(@"^(([a-zA-Z0-9\u00C0-\u00FF.]{1})+)$",
+            ErrorMessage = "Este não parece um login válido, digite apenas o login com caracteres alfanuméricos e pontos, sem espaços.")]
         public string Login { get; set; }
 
         [Required, StringLength(50)]

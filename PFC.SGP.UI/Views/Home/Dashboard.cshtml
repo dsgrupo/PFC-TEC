@@ -19,7 +19,7 @@ else
         <label id="dash-title">Próximos trabalhos. </label>
     </div>
 
-    <div id="dash">
+    <div id="accordion-container">
         <div id="accordion">
             <div class="ret-alunos ret-vermelho d-block">
                 <button class="btn btn-dia" data-toggle="collapse" data-target="#table_15" aria-expanded="true"
@@ -141,6 +141,61 @@ else
                                 else
                                 {
                                     foreach (TrabalhoDashboardVM trab in ViewBag.Trabalhos90Dias)
+                                    {
+                                        <tr>
+                                            <td class="dotted-divisor">
+                                                <button class="btn btn-aluno d-block"
+                                                        data-toggle="modal" data-target="#detalhesModal"
+                                                        data-nome-trabalho="@trab.Nome"
+                                                        data-codigo-orientador="@trab.Orientador.Codigo"
+                                                        data-nome-orientador="@trab.Orientador.Nome"
+                                                        data-sobrenome-orientador="@trab.Orientador.Sobrenome"
+                                                        data-email-orientador="@trab.Orientador.Email"
+                                                        data-telefone-orientador="@trab.Orientador.Telefone"
+                                                        data-matricula-aluno="@trab.Aluno.Matricula"
+                                                        data-nome-aluno="@trab.Aluno.Nome"
+                                                        data-sobrenome-aluno="@trab.Aluno.Sobrenome"
+                                                        data-email-aluno="@trab.Aluno.Email"
+                                                        data-telefone-aluno="@trab.Aluno.Telefone">
+                                                    @trab.Nome
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="dash-title-container">
+        <i href="#" role="button" class="fas fa-question-circle text-white float-right align-content-end" data-toggle="popover" title="" data-content="São estimativas baseadas na soma de meses corridos desde o mês de ingresso do aluno." data-original-title="Aviso"></i>
+        <button id="dash-title" class="btn btn-dia" data-toggle="collapse" data-target="#table_atrasados" aria-expanded="true"
+                aria-controls="table_atrasados">
+            Trabalhos em atraso.
+        </button>
+    </div>
+    <div class="accordion-container">
+        <div id="accordion2">
+            <div class="ret-alunos d-block">
+                <div id="table_atrasados" class="collapse show" data-parent="#accordion2">
+                    <table class="col-md-12">
+                        <tbody>
+                            @{
+                                if (((List<TrabalhoDashboardVM>)ViewBag.TrabalhosAtrasados).Count() <= 0)
+                                {
+                                    <tr>
+                                        <td class="dotted-divisor">
+                                            <label>Nenhum registro encontrado.</label>
+                                        </td>
+                                    </tr>
+
+                                }
+                                else
+                                {
+                                    foreach (TrabalhoDashboardVM trab in ViewBag.TrabalhosAtrasados)
                                     {
                                         <tr>
                                             <td class="dotted-divisor">
