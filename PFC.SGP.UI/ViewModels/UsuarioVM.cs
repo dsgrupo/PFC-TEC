@@ -12,8 +12,8 @@ namespace PFC.SGP.UI.ViewModels
         }
 
         [Required, StringLength(100)]
-        [RegularExpression(@"^(([a-zA-Z0-9\u00C0-\u00FF]{1})+)$",
-            ErrorMessage = "Este não parece um login válido, digite apenas o login, sem espaços.")]
+        [RegularExpression(@"^(([a-zA-Z0-9\u00C0-\u00FF.]{1})+)$",
+            ErrorMessage = "Este não parece um login válido, digite apenas o login com caracteres alfanuméricos e pontos, sem espaços.")]
         public string Login { get; set; }
 
         [Required, StringLength(50)]
@@ -22,7 +22,7 @@ namespace PFC.SGP.UI.ViewModels
         public string Codigo { get; set; }
 
         [RegularExpression(@"^(([a-zA-Z\u00C0-\u00FF]{2,})+( ?[a-zA-Z\u00C0-\u00FF]+)+)$",
-            ErrorMessage = "Este não parece um sobrenome válido.")]
+            ErrorMessage = "Este não parece um nome válido.")]
         [Required]
         [StringLength(50)]
         public string Nome { get; set; }
