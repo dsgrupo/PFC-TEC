@@ -2,6 +2,7 @@
 using Microsoft.Owin;
 using Owin;
 using PFC.SGP.Service;
+using PFC.SGP.UI.Validation;
 using System;
 
 [assembly: OwinStartup(typeof(PFC.SGP.UI.MailStartup))]
@@ -23,7 +24,10 @@ namespace PFC.SGP.UI
             RecurringJob.AddOrUpdate<MailService>(x => x.EnviarNotificacaoPorEmail(), "0 30 13 1/10 * ?", TimeZoneInfo.FindSystemTimeZoneById("Bahia Standard Time"));
             RecurringJob.AddOrUpdate<MailService>(x => x.EnviarEmailParaAlunos(), "0 35 13 1/10 * ?", TimeZoneInfo.FindSystemTimeZoneById("Bahia Standard Time"));
 
-            app.UseHangfireDashboard();
+            app.UseHangfireDashboard("/hangfire", new DashboardOptions
+            {
+                Authorization = new[] { new HangfireAuthorization() }
+            });
             app.UseHangfireServer();
 
         }

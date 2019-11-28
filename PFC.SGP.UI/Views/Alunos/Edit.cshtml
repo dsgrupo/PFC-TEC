@@ -8,28 +8,28 @@
     <div>
         <h3 class="border-bottom border-primary pb-2 mb-4">Informações básicas</h3>
         <div class="form-group row">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <label for="txtMatricula">Matricula</label>
                 <input type="text" class="form-control" id="txtMatricula" name="matricula" placeholder="Insira aqui a matricula" value="@Model.Matricula" autofocus>
                 <small class="d-block">
                     @Html.ValidationMessageFor(model => model.Matricula, null, new { @class = "text-danger" })
                 </small>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <label for="txtAnoIngresso">Ano de ingresso</label>
                 <input type="number" min="2000" max="2090" class="form-control" id="txtAnoIngresso" name="AnoIngresso" placeholder="Insira aqui o ano de matricula desse aluno" value="@Model.AnoIngresso">
                 <small class="d-block">
                     @Html.ValidationMessageFor(model => model.AnoIngresso, null, new { @class = "text-danger" })
                 </small>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <label for="txtMesIngresso">Mês de ingresso</label>
                 <input type="number" min="1" max="12" class="form-control" id="txtMesIngresso" name="MesIngresso" placeholder="Insira aqui o semestre de matricula desse aluno" value="@Model.MesIngresso">
                 <small class="d-block">
                     @Html.ValidationMessageFor(model => model.MesIngresso, null, new { @class = "text-danger" })
                 </small>
             </div>
-            <div class="col-md-3">
+            @*<div class="col-md-3">
                 <label for="selectStatus">Status</label>
                 <select class="form-control" id="selectStatus" name="status">
                     <option value="1">Matriculado</option>
@@ -39,7 +39,7 @@
                     <option value="5">Jubilado</option>
                     <option value="6">Abandonou</option>
                 </select>
-            </div>
+            </div>*@
         </div>
         <div class="form-group row">
             <small class="d-block col-md-12">
@@ -153,9 +153,9 @@
 @section Scripts {
     <script type="text/javascript" src="~/Scripts/sgp/alunos/Edit.js"></script>
     <script>
-        $(document).ready(function () {
+        @*$(document).ready(function () {
             $("#selectStatus").val(@Model.Status);
-        });
+        });*@
         $('#chkAdiar').change(function () {
             if (document.getElementById('chkAdiar').checked) {
                 $('#txtAnoApresentacao').prop("readonly", false)
