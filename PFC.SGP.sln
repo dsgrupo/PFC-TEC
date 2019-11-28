@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PFC.SGP.Domain", "PFC.SGP.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PFC.SGP.Data", "PFC.SGP.Data\PFC.SGP.Data.csproj", "{7072B958-32B5-4B93-9143-EB30D82D1AE4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PFC.SGP.Service", "PFC.SGP.Service\PFC.SGP.Service.csproj", "{E55BD847-FB96-4555-8D66-A64C31B5CBBD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{7072B958-32B5-4B93-9143-EB30D82D1AE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7072B958-32B5-4B93-9143-EB30D82D1AE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7072B958-32B5-4B93-9143-EB30D82D1AE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E55BD847-FB96-4555-8D66-A64C31B5CBBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E55BD847-FB96-4555-8D66-A64C31B5CBBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E55BD847-FB96-4555-8D66-A64C31B5CBBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E55BD847-FB96-4555-8D66-A64C31B5CBBD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

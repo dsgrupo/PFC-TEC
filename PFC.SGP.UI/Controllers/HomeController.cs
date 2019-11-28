@@ -6,6 +6,8 @@ using PFC.SGP.UI.ViewModels.Home.Dashboard;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
+using System.Text;
 using System.Web.Mvc;
 
 namespace PFC.SGP.UI.Controllers
@@ -225,5 +227,75 @@ namespace PFC.SGP.UI.Controllers
 
             return trabalhos90Dias;
         }
+        //public  void enviaremailparajarsia()
+        //{
+        //    string mensagemfinaljarsia = "";
+        //    string chamado = "prezada jarsia, o sistema de gerenciamento de projetos(sgp) vem por meio deste email informar que os seguintes alunos entraram na área de risco (zona vermelha):";
+        //    string despedida = "atenciosamente, sgp!";
+
+        //    datetime dataatual = datetime.now;
+        //    list<trabalhodashboardvm> trabalhosativos = obterlistatrabalhos().totrabalhodashboardvm().tolist();
+        //    list<trabalhodashboardvm> trabalhos15dias = new list<trabalhodashboardvm>();
+
+        //    datetime datamaxima;
+        //    datetime dataminima;
+
+        //    foreach (trabalhodashboardvm trab in trabalhosativos)
+        //    {
+        //        datamaxima = new datetime(int.parse(trab.anoapresentacao), int.parse(trab.mesapresentacao), 1);
+        //        dataminima = datamaxima.adddays(-15);
+        //        if (dataatual >= dataminima && dataatual < datamaxima)
+        //        {
+        //            trabalhos15dias.add(trab);
+        //        }
+        //    }
+
+        //    string mensagem = "";
+        //    string[] tostringtrabalho = new string[trabalhos15dias.count];
+        //    stringbuilder msgcorpoemail = new stringbuilder();
+
+        //    for (int i = 0; i < trabalhos15dias.count; i++)
+        //    {
+        //        tostringtrabalho[i] = trabalhos15dias[i].tostring();
+        //    }
+
+
+        //    for (int i = 0; i < trabalhos15dias.count; i++)
+        //    {
+        //        mensagem += tostringtrabalho[i] + msgcorpoemail.append("<br>");
+
+        //    }
+
+        //    mensagemfinaljarsia = chamado + msgcorpoemail.append("<b><br/>") + mensagem + msgcorpoemail.append("<b><br/>") + despedida;
+
+        //    try
+        //    {
+        //        //smpt client details
+        //        smtpclient clientdetails = new smtpclient();
+        //        clientdetails.port = 587;
+        //        clientdetails.host = "smtp.live.com";
+        //        clientdetails.enablessl = true;
+        //        clientdetails.deliverymethod = smtpdeliverymethod.network;
+        //        clientdetails.usedefaultcredentials = false;
+        //        clientdetails.credentials = new system.net.networkcredential("piocarvalho_1@hotmail.com", "felipe12");
+
+        //        //message details
+        //        mailmessage maildetails = new mailmessage();
+        //        maildetails.from = new mailaddress("piocarvalho_1@hotmail.com");
+        //        maildetails.to.add("felipec798@gmail.com");
+
+        //        maildetails.subject = "alunos que entraram na zona vermelha (zona de risco)";
+
+        //        maildetails.isbodyhtml = true;
+        //        maildetails.body = mensagemfinaljarsia;
+
+        //        clientdetails.send(maildetails);
+
+        //    }
+        //    catch (exception ex)
+        //    {
+        //        system.diagnostics.debug.writeline(ex.message);
+        //    }
+        //}
     }
 }
