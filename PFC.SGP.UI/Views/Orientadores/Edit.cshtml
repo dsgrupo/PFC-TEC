@@ -10,7 +10,7 @@
         <div class="form-group row">
             <div class="col-md-4">
                 <label for="txtCodigo">Código</label>
-                <input type="text" class="form-control" id="txtCodigo" name="codigo" placeholder="Insira aqui o codigo" value="@Model.Codigo" required>
+                <input type="text" class="form-control" id="txtCodigo" name="codigo" placeholder="Insira aqui o código" value="@Model.Codigo" required>
                 <small class="d-block">
                     @Html.ValidationMessageFor(model => model.Codigo, null, new { @class = "text-danger" })
                 </small>
@@ -52,6 +52,6 @@
     </div>
     <div class="col-md-12 btn-group">
         <a class="btn btn-secondary" href="~/Orientadores/Index">Cancelar</a>
-        <button class="btn btn-primary" type="submit">Salvar Alterações</button>
+        <button class="btn btn-primary" type="submit">Salvar alterações</button>
     </div>
 </form>

@@ -1,6 +1,6 @@
 ﻿function ConfirmDelTrab(id, nome, nomeAluno, mat) {
 
-    $('#nomeAlunoModal').text(nomeAluno + " (Matricula: " + mat + ")")
+    $('#nomeAlunoModal').text(nomeAluno + " (Matrícula: " + mat + ")")
     $('#nomeTrabModal').text(nome)
     $('#delModal').data('id', id).modal('show')
 

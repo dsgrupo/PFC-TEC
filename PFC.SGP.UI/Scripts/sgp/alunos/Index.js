@@ -19,7 +19,7 @@
 
 function ConfirmDelAluno(id, nome, mat) {
 
-    $('#nomeAlunoModal').text(nome + " (Matricula: " + mat + ")")
+    $('#nomeAlunoModal').text(nome + " (Matrícula: " + mat + ")")
     $('#delModal').data('id', id).modal('show')
 }
 

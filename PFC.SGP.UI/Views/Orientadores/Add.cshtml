@@ -10,7 +10,7 @@
         <div class="form-group row">
             <div class="col-md-4">
                 <label for="txtCodigo">Código</label>
-                <input type="text" class="form-control" id="txtCodigo" name="codigo" placeholder="Insira aqui o codigo" autofocus required value="@Model.Codigo">
+                <input type="text" class="form-control" id="txtCodigo" name="codigo" placeholder="Insira aqui o código" autofocus required value="@Model.Codigo">
                 <small class="d-block">
                     @Html.ValidationMessageFor(model => model.Codigo, null, new { @class = "text-danger" })
                 </small>

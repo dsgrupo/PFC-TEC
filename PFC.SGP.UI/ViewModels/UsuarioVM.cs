@@ -19,6 +19,7 @@ namespace PFC.SGP.UI.ViewModels
         [Required, StringLength(50)]
         [RegularExpression(@"^(([a-zA-Z0-9\u00C0-\u00FF]{1})+)$",
             ErrorMessage = "Este não parece um código válido, digite apenas o código, sem espaços.")]
+        [Display(Name = "Código")]
         public string Codigo { get; set; }
 
         [RegularExpression(@"^(([a-zA-Z\u00C0-\u00FF]{2,})+( ?[a-zA-Z\u00C0-\u00FF]+)+)$",
@@ -43,6 +44,7 @@ namespace PFC.SGP.UI.ViewModels
             ErrorMessage = "Este não é um e-mail válido.")]
         [Required]
         [StringLength(50)]
+        [Display(Name = "E-mail")]
         public string Email { get; set; }
 
         public ICollection<Domain.Entities.Curso> Cursos { get; set; } = new List<Domain.Entities.Curso>();

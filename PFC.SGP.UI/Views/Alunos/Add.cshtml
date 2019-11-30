@@ -9,22 +9,22 @@
         <h3 class="border-bottom border-primary pb-2 mb-4">Informações básicas</h3>
         <div class="form-group row">
             <div class="col-md-4">
-                <label for="txtMatricula">Matricula</label>
-                <input type="text" class="form-control" id="txtMatricula" name="matricula" placeholder="Insira aqui a matricula" autofocus required value="@Model.Matricula">
+                <label for="txtMatricula">Matrícula</label>
+                <input type="text" class="form-control" id="txtMatricula" name="Matricula" placeholder="Insira aqui a matrícula" autofocus required value="@Model.Matricula">
                 <small class="d-block">
                     @Html.ValidationMessageFor(model => model.Matricula, null, new { @class = "text-danger" })
                 </small>
             </div>
             <div class="col-md-4">
                 <label for="txtAnoSemestre">Ano de ingresso</label>
-                <input type="number" min="2000" class="form-control" id="txtAnoSemestre" name="anoIngresso" placeholder="Insira aqui o ano de matricula" required value="@Model.AnoIngresso">
+                <input type="number" min="2000" class="form-control" id="txtAnoSemestre" name="anoIngresso" placeholder="Insira aqui o ano de ingresso" required value="@Model.AnoIngresso">
                 <small class="d-block">
                     @Html.ValidationMessageFor(model => model.AnoIngresso, null, new { @class = "text-danger" })
                 </small>
             </div>
             <div class="col-md-4">
                 <label for="txtSemestre">Mês de ingresso</label>
-                <input type="number" min="1" max="12" class="form-control" id="txtSemestre" name="mesIngresso" placeholder="Insira aqui o semestre de matricula" required value="@Model.MesIngresso">
+                <input type="number" min="1" max="12" class="form-control" id="txtSemestre" name="mesIngresso" placeholder="Insira aqui o semestre de ingresso" required value="@Model.MesIngresso">
                 <small class="d-block">
                     @Html.ValidationMessageFor(model => model.MesIngresso, null, new { @class = "text-danger" })
                 </small>

@@ -54,7 +54,7 @@ namespace PFC.SGP.UI.Controllers
 
             if (matriculaExistente)
             {
-                ModelState.AddModelError("Matricula", "Já existe um aluno com essa matricula");
+                ModelState.AddModelError("Matricula", "Já existe um aluno com essa matrícula");
             }
 
             ModelState["AnoApresentacao"].Errors.Clear();
@@ -104,7 +104,7 @@ namespace PFC.SGP.UI.Controllers
 
             if (matriculaExistente)
             {
-                ModelState.AddModelError("Matricula", "Já existe um aluno com essa matricula");
+                ModelState.AddModelError("Matricula", "Já existe um aluno com essa matrícula");
             }
             novoAluno.AnoApresentacao = alunoRecebido.AnoApresentacao;
             ModelState["AnoApresentacao"].Errors.Clear();
@@ -118,11 +118,11 @@ namespace PFC.SGP.UI.Controllers
 
             if (ObterPrevisaoInicialApresentacao(alunoSalvo)[0] > alunoRecebido.AnoApresentacao)
             {
-                ModelState.AddModelError("MesApresentacao", "Restauramos a combinação Ano/Semestre pois a inserida não representava uma data posterior a data de previsão padrao");
+                ModelState.AddModelError("MesApresentacao", "Restauramos a combinação Ano/Semestre pois a inserida não representava uma data posterior a data de previsão padrão");
             }
             else if (ObterPrevisaoInicialApresentacao(alunoSalvo)[0] == alunoRecebido.AnoApresentacao && ObterPrevisaoInicialApresentacao(alunoSalvo)[1] > alunoRecebido.MesApresentacao)
             {
-                ModelState.AddModelError("MesApresentacao", "Restauramos a combinação Ano/Semestre pois a inserida não representava uma data posterior a data de previsão padrao");
+                ModelState.AddModelError("MesApresentacao", "Restauramos a combinação Ano/Semestre pois a inserida não representava uma data posterior a data de previsão padrão");
             }
 
             if (ModelState.IsValid)

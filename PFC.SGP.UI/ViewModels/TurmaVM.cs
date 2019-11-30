@@ -13,6 +13,7 @@ namespace PFC.SGP.UI.ViewModels
         [RegularExpression(@"^(([a-zA-Z0-9\u00C0-\u00FF]{1})+)$",
             ErrorMessage = "Este não parece um código válido, digite apenas o código, sem espaços.")]
         [StringLength(50)]
+        [Display(Name = "Código")]
         public string Codigo { get; set; }
 
         [Required]

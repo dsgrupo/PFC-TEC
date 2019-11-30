@@ -17,7 +17,7 @@
 
 function ConfirmDelOrientador(id, nome, cod) {
 
-    $('#nomeOrientadorModal').text(nome + " (Codigo: " + cod + ")")
+    $('#nomeOrientadorModal').text(nome + " (Código: " + cod + ")")
     $('#delModal').data('id', id).modal('show')
 }
 

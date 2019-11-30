@@ -35,15 +35,23 @@ namespace PFC.SGP.UI.Controllers
                 .FirstOrDefault(c => c.Nome.Equals(cursoRecebido.Nome, StringComparison.InvariantCultureIgnoreCase) && !c.Id.Equals(cursoRecebido.Id)) != null;
             if (nomeExistente)
             {
-                ModelState.AddModelError("Nome", "Já existe um curso com esse nome");
+                ModelState.AddModelError("Nome", "Já existe um curso com esse nome.");
             }
             if (ModelState.IsValid)
             {
                 Curso novoCurso = cursoRecebido.ToCurso();
                 _cursoRepository.Persist(novoCurso);
-                return Json("true", JsonRequestBehavior.AllowGet);
+                return Json("OK", JsonRequestBehavior.AllowGet);
             }
-            return Json("false", JsonRequestBehavior.AllowGet);
+            List<Object> errorList = new List<Object>();
+            foreach(var values in ModelState.Values)
+            {
+                foreach(var error in values.Errors)
+                {
+                    errorList.Add(new { error = error.ErrorMessage });
+                }
+            }
+            return Json(errorList, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]

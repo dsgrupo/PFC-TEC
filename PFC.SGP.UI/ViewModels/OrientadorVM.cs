@@ -14,6 +14,7 @@ namespace PFC.SGP.UI.ViewModels
             ErrorMessage = "Este não parece um código válido, digite apenas o código, sem espaços.")]
         [StringLength(50)]
         [Required]
+        [Display(Name = "Código")]
         public string Codigo { get; set; }
 
         [RegularExpression(@"^(([a-zA-Z\u00C0-\u00FF]{2,})+( ?[a-zA-Z\u00C0-\u00FF]+)+)$",
@@ -38,6 +39,7 @@ namespace PFC.SGP.UI.ViewModels
             ErrorMessage = "Este não é um e-mail válido.")]
         [Required]
         [StringLength(50)]
+        [Display(Name = "E-mail")]
         public string Email { get; set; }
         
 

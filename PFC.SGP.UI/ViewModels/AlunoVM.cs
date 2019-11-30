@@ -12,9 +12,10 @@ namespace PFC.SGP.UI.ViewModels
         }
 
         [RegularExpression(@"^(([a-zA-Z0-9\u00C0-\u00FF]{1})+)$",
-            ErrorMessage = "Esta não parece uma matricula válida, digite apenas a matricula, sem espaços.")]
+            ErrorMessage = "Esta não parece uma matrícula válida, digite apenas a matrícula, sem espaços.")]
         [StringLength(50)]
         [Required]
+        [Display(Name = "Matrícula")]
         public string Matricula { get; set; }
         
         [RegularExpression(@"^(([a-zA-Z\u00C0-\u00FF]{2,})+( ?[a-zA-Z\u00C0-\u00FF]+)+)$",
@@ -41,22 +42,27 @@ namespace PFC.SGP.UI.ViewModels
             ErrorMessage = "Este não é um e-mail válido.")]
         [StringLength(50)]
         [Required]
+        [Display(Name = "E-mail")]
         public string Email { get; set; }
 
         [MinValue(2000, ErrorMessage = "O valor mínimo é 2000"), MaxValue(2090, ErrorMessage = "O valor é alto demais")]
         [Required]
+        [Display(Name = "Ano de Ingresso")]
         public int AnoIngresso { get; set; }
 
         [MinValue(1, ErrorMessage = "O valor mínimo é 1"), MaxValue(12, ErrorMessage = "O valor máximo é 12")]
         [Required]
+        [Display(Name = "Mes de Ingresso")]
         public int MesIngresso { get; set; }
 
         [MinValue(2000, ErrorMessage = "O valor mínimo é 2000"), MaxValue(2090, ErrorMessage = "O valor é alto demais")]
         [Required]
+        [Display(Name = "Ano de Apresentação")]
         public int AnoApresentacao { get; set; }
 
         [MinValue(1, ErrorMessage = "O valor mínimo é 1"), MaxValue(12, ErrorMessage = "O valor máximo é 12")]
         [Required]
+        [Display(Name = "Mes de Apresentação")]
         public int MesApresentacao { get; set; }
 
         [Required]

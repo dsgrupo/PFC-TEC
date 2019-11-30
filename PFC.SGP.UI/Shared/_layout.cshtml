@@ -140,7 +140,7 @@
                 </div>
                 <form id="formMudarSenha">
                     <div class="modal-body">
-                        <small id="divCheckPasswordMatch" class="text-info"></small>
+                        <small id="divCheckPasswordMatch" class="text-danger"></small>
                         <div class="form-group">
                             <label for="InputPassword1">Nova senha</label>
                             <input type="password" class="form-control" id="InputPassword1" placeholder="Insira sua senha">
@@ -154,7 +154,7 @@
                     <div class="modal-footer">
                         <div class="btn-group col-md-12">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                            <button id="btnSalvarSenha" type="button" class="btn btn-primary">Salvar</button>
+                            <button id="btnSalvarSenha" type="button" class="btn btn-primary">Salvar alterações</button>
                         </div>
                     </div>
                 </form>
@@ -215,7 +215,7 @@
                 document.getElementById("btnSalvarSenha").disabled = true;
             }
             else {
-                $("#divCheckPasswordMatch").html("As senhas são iguais!");
+                $("#divCheckPasswordMatch").html("");
                 document.getElementById("btnSalvarSenha").disabled = false;
             }
 

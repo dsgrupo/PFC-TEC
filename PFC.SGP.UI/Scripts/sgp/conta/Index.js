@@ -35,7 +35,7 @@ function DelCoord() {
         }
         if (this.readyState === 4 && this.status === 400) {
             $('#delModal').data('id', '0').modal('hide')
-            toastr.error('Não se pode deletar um coordenador associado a um curso com alunos.', 'Operação mal-sucedida')
+            toastr.error('Não se pode deletar um coordenador associado a um curso ativo.', 'Operação mal-sucedida')
         }
         if (this.readyState === 4 && this.status === 200) {
             let tr = document.querySelector(`#coordenador-${id}`);
