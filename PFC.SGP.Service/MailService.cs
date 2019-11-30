@@ -11,10 +11,17 @@ namespace PFC.SGP.Service
     public class MailService
     {
         private readonly ITrabalhoRepository _trabalhoRepository;
+        private readonly IUsuarioRepository _usuarioRepository;
 
-        public MailService(ITrabalhoRepository trabalhoRepository)
+        public MailService(ITrabalhoRepository trabalhoRepository, IUsuarioRepository usuarioRepository)
         {
             _trabalhoRepository = trabalhoRepository;
+            _usuarioRepository = usuarioRepository;
+        }
+
+        private List<Usuario> ObterCoordenadores()
+        {
+            return this._usuarioRepository.Find().ToList();
         }
 
         private List<Trabalho> ObterListaTrabalhos15Dias(DateTime dataAtual)
@@ -41,102 +48,111 @@ namespace PFC.SGP.Service
         public void EnviarNotificacaoPorEmail()
         {
             StringBuilder msgCorpoEmail = new StringBuilder();
-            string mensagemFinalJarsia = "";
-            string chamado = "Prezada Jarsia, o Sistema de Gerenciamento de Projetos(SGP) vem por meio deste email informar que os seguintes alunos entraram na área de risco (Zona Vermelha):";
-            string infoTrabalhos = "";
-            string despedida = "Atenciosamente, SGP!";
-
             List<Trabalho> trabalhos15Dias = ObterListaTrabalhos15Dias(DateTime.Now);
+            List<Usuario> coordenadores = ObterCoordenadores();
 
 
             if (trabalhos15Dias.Count > 0)
             {
-                string[] toStringTrabalho = new string[trabalhos15Dias.Count];
-
-                for (int i = 0; i < trabalhos15Dias.Count; i++)
+                foreach (var coordenador in coordenadores)
                 {
-                    toStringTrabalho[i] = trabalhos15Dias[i].ToString();
-                }
+                    string chamado = "Prezado(a) " + coordenador.Nome + ", o Sistema de Gerenciamento de Projetos(SGP) vem por meio deste email informar que os seguintes alunos entraram na área de risco (Zona Vermelha):" + msgCorpoEmail.Append("<b>");
+                    string corpoEmail = "";
+                    string despedida = "Atenciosamente, SGP!";
 
+                    List<Trabalho> trabalhosDasTurmasDoCoordenador = trabalhos15Dias.Where(t => t.Aluno.Turma.Curso.Coordenador.Id.Equals(coordenador.Id)).ToList();
 
-                for (int i = 0; i < trabalhos15Dias.Count; i++)
-                {
-                    infoTrabalhos += toStringTrabalho[i] + msgCorpoEmail.Append("<br>");
+                    foreach (var trabalhoCoordenado in trabalhosDasTurmasDoCoordenador)
+                    {
+                        corpoEmail += trabalhoCoordenado.ToString();
+                    }
 
-                }
+                    string mensagemFinal = chamado + msgCorpoEmail.Append("<p>") + corpoEmail + msgCorpoEmail.Append("<b>") + despedida;
 
-                mensagemFinalJarsia = chamado + msgCorpoEmail.Append("<b><br/>") + infoTrabalhos + msgCorpoEmail.Append("<b><br/>") + despedida;
+                    try
+                    {
+                        //Smpt Client Details
+                        SmtpClient clientDetails = new SmtpClient
+                        {
+                            Port = 587,
+                            Host = "smtp.live.com",
+                            EnableSsl = true,
+                            DeliveryMethod = SmtpDeliveryMethod.Network,
+                            UseDefaultCredentials = false,
+                            Credentials = new System.Net.NetworkCredential("sistemadegerenciamentodeprojetos@hotmail.com", "sgp12345")
+                        };
 
-                try
-                {
-                    //Smpt Client Details
-                    SmtpClient clientDetails = new SmtpClient();
-                    clientDetails.Port = 587;
-                    clientDetails.Host = "smtp.live.com";
-                    clientDetails.EnableSsl = true;
-                    clientDetails.DeliveryMethod = SmtpDeliveryMethod.Network;
-                    clientDetails.UseDefaultCredentials = false;
-                    clientDetails.Credentials = new System.Net.NetworkCredential("sistemadegerenciamentodeprojetos@hotmail.com", "sgp12345");
+                        //Message Details
+                        MailMessage mailDetails = new MailMessage
+                        {
+                            From = new MailAddress("sistemadegerenciamentodeprojetos@hotmail.com"),
+                            Subject = "Alunos que entraram na zona vermelha (Zona de risco)",
+                            IsBodyHtml = true,
+                            Body = mensagemFinal
 
-                    //Message Details
-                    MailMessage mailDetails = new MailMessage();
-                    mailDetails.From = new MailAddress("sistemadegerenciamentodeprojetos@hotmail.com");
-                    mailDetails.To.Add("felipec798@gmail.com");
+                        };
+                        mailDetails.To.Add(coordenador.Email);
 
-                    mailDetails.Subject = "Alunos que entraram na zona vermelha (Zona de risco)";
+                        clientDetails.Send(mailDetails);
 
-                    mailDetails.IsBodyHtml = true;
-                    mailDetails.Body = mensagemFinalJarsia;
-
-                    clientDetails.Send(mailDetails);
-
-                }
-                catch (Exception ex)
-                {
-                    System.Diagnostics.Debug.WriteLine(ex.Message);
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine(ex.Message);
+                    }
                 }
             }
             else
             {
                 try
                 {
-                    string mensagem_vazia = "";
-                    string chamado_vazia = "Prezada Jarsia, o Sistema de Gerenciamento de Projetos(SGP) vem por meio deste email informar que não existem alunos na área de risco (Zona Vermelha)";
-                    mensagem_vazia = chamado_vazia + msgCorpoEmail.Append("<b><br/>") + msgCorpoEmail.Append("<b><br/>") + despedida;
+                    foreach (var coordenador in coordenadores)
+                    {
 
-                    //Smpt Client Details
-                    SmtpClient clientDetails = new SmtpClient();
-                    clientDetails.Port = 587;
-                    clientDetails.Host = "smtp.live.com";
-                    clientDetails.EnableSsl = true;
-                    clientDetails.DeliveryMethod = SmtpDeliveryMethod.Network;
-                    clientDetails.UseDefaultCredentials = false;
-                    clientDetails.Credentials = new System.Net.NetworkCredential("sistemadegerenciamentodeprojetos@hotmail.com", "sgp12345");
+                        string chamado = "Prezado(a) " + coordenador.Nome + ", o Sistema de Gerenciamento de Projetos(SGP) vem por meio deste email informar que não existem alunos na área de risco(Zona Vermelha)" + msgCorpoEmail.Append("<b>");
+                        string corpoEmail = "";
+                        string despedida = "Atenciosamente, SGP!";
+                        corpoEmail = chamado + msgCorpoEmail.Append("<b><br/>") + despedida;
 
-                    //Message Details
-                    MailMessage mailDetails = new MailMessage();
-                    mailDetails.From = new MailAddress("sistemadegerenciamentodeprojetos@hotmail.com");
-                    mailDetails.To.Add("felipec798@gmail.com");
 
-                    mailDetails.Subject = "Alunos que entraram na zona vermelha (Zona de risco)";
+                        //Smpt Client Details
+                        SmtpClient clientDetails = new SmtpClient
+                        {
+                            Port = 587,
+                            Host = "smtp.live.com",
+                            EnableSsl = true,
+                            DeliveryMethod = SmtpDeliveryMethod.Network,
+                            UseDefaultCredentials = false,
+                            Credentials = new System.Net.NetworkCredential("sistemadegerenciamentodeprojetos@hotmail.com", "sgp12345")
+                        };
 
-                    mailDetails.IsBodyHtml = true;
-                    mailDetails.Body = mensagem_vazia;
+                        //Message Details
+                        MailMessage mailDetails = new MailMessage
+                        {
+                            From = new MailAddress("sistemadegerenciamentodeprojetos@hotmail.com"),
+                            Subject = "Alunos que entraram na zona vermelha (Zona de risco)",
+                            IsBodyHtml = true,
+                            Body = corpoEmail
 
-                    clientDetails.Send(mailDetails);
+                        };
+                        mailDetails.To.Add(coordenador.Email);
 
+                        clientDetails.Send(mailDetails);
+                    }
                 }
                 catch (Exception ex)
                 {
                     System.Diagnostics.Debug.WriteLine(ex.Message);
                 }
             }
+
         }
+
 
         public void EnviarEmailParaAlunos()
         {
             string mensagemFinalAluno = "";
-            string chamado = "Prezado(a) aluno(a), o Sistema de Gerenciamento de Projetos(SGP) vem por meio deste email informar que a data da apresentação do seu trabalho está próxima, favor entrar em contato com o seu orientador";
+            string chamado = "Prezado(a) aluno(a), o Sistema de Gerenciamento de Projetos(SGP) vem por meio deste email informar que a data da apresentação do seu trabalho está próxima, favor entrar em contato com o seu orientador!";
             string despedida = "Atenciosamente, SGP!";
 
             List<Trabalho> trabalhos15Dias = ObterListaTrabalhos15Dias(DateTime.Now); ;
