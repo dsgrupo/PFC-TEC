@@ -152,7 +152,7 @@ namespace PFC.SGP.Service
         public void EnviarEmailParaAlunos()
         {
             string mensagemFinalAluno = "";
-            string chamado = "Prezado(a) aluno(a), o Sistema de Gerenciamento de Projetos(SGP) vem por meio deste email informar que a data da apresentação do seu trabalho está próxima, favor entrar em contato com o seu orientador";
+            string chamado = "Prezado(a) aluno(a), o Sistema de Gerenciamento de Projetos(SGP) vem por meio deste email informar que a data da apresentação do seu trabalho está próxima, favor entrar em contato com o seu orientador!";
             string despedida = "Atenciosamente, SGP!";
 
             List<Trabalho> trabalhos15Dias = ObterListaTrabalhos15Dias(DateTime.Now); ;
