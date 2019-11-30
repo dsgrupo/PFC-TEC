@@ -371,7 +371,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="MailStartup.cs" />
-    <Compile Include="Startup2.cs" />
     <Compile Include="Validation\LongMaxValue.cs" />
     <Compile Include="Validation\LongMinValue.cs" />
     <Compile Include="ViewModels\AbstractEntity.cs" />

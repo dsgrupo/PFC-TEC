@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace PFC.SGP.Domain.Entities
 {
@@ -18,7 +19,11 @@ namespace PFC.SGP.Domain.Entities
         public override string ToString()
         {
             //TODO
-            return base.ToString();
+            StringBuilder msgCorpoEmail = new StringBuilder();
+            return "Turma: " + Aluno.Turma.Codigo + msgCorpoEmail.Append("<p>") + 
+                "Curso: " + Aluno.Turma.Curso.Nome + msgCorpoEmail.Append("<p>") + 
+                "Aluno: " + Aluno.Nome+" "+Aluno.Sobrenome + msgCorpoEmail.Append("<p>") + 
+                "Orientador: " + Orientador.Nome + " " + Orientador.Sobrenome + msgCorpoEmail.Append("<b><br/>");
         }
     }
 }

@@ -16,8 +16,9 @@ namespace PFC.SGP.UI
             GlobalConfiguration.Configuration.UseSqlServerStorage("devConn");
             GlobalConfiguration.Configuration.UseUnityActivator(container);
 
-            //Para um tempo maior, podemos utilizar Cron.DayInterval(10)
-            RecurringJob.AddOrUpdate<MailService>(x => x.EnviarNotificacaoPorEmail(), Cron.Minutely);
+            // Para um tempo maior, podemos utilizar Cron.DayInterval(10)
+            RecurringJob.AddOrUpdate<MailService>(x => x.EnviarNotificacaoPorEmail(), Cron.DayInterval(10));
+            RecurringJob.AddOrUpdate<MailService>(x => x.EnviarEmailParaAlunos(), Cron.DayInterval(10));
             app.UseHangfireDashboard();
             app.UseHangfireServer();
 
