@@ -53,7 +53,7 @@ namespace PFC.SGP.UI.Controllers
             }
             if (codigoExiste)
             {
-                ModelState.AddModelError("Codigo", "Já existe um usuario com esse código.");
+                ModelState.AddModelError("Codigo", "Já existe um usuário com esse código.");
             }
 
             if (ModelState.IsValid)
@@ -128,7 +128,7 @@ namespace PFC.SGP.UI.Controllers
             }
             if (codigoExiste)
             {
-                ModelState.AddModelError("Codigo", "Já existe um usuario com esse código.");
+                ModelState.AddModelError("Codigo", "Já existe um usuário com esse código.");
             }
 
             if (ModelState.IsValid)
