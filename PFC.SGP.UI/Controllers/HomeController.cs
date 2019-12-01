@@ -175,7 +175,7 @@ namespace PFC.SGP.UI.Controllers
                 dataMaxima = new DateTime(int.Parse(trab.AnoApresentacao), int.Parse(trab.MesApresentacao), 1);
                 TimeSpan diferenca = Convert.ToDateTime(dataMaxima) - Convert.ToDateTime(dataAtual);
                 int distancia = diferenca.Days;
-                if (distancia <=15 && distancia > 5  )
+                if (distancia < 15 && distancia >= 5  )
                 {
                     trabalhos15Dias.Add(trab);
                 }
@@ -197,7 +197,7 @@ namespace PFC.SGP.UI.Controllers
                 dataMaxima = new DateTime(int.Parse(trab.AnoApresentacao), int.Parse(trab.MesApresentacao), 1);
                 TimeSpan diferenca = Convert.ToDateTime(dataMaxima) - Convert.ToDateTime(dataAtual);
                 int distancia = diferenca.Days;
-                if (distancia <= 30 && distancia > 20)
+                if (distancia < 30 && distancia >= 20)
                 {
                     trabalhos30Dias.Add(trab);
                 }
@@ -219,7 +219,7 @@ namespace PFC.SGP.UI.Controllers
                 dataMaxima = new DateTime(int.Parse(trab.AnoApresentacao), int.Parse(trab.MesApresentacao), 1);
                 TimeSpan diferenca = Convert.ToDateTime(dataMaxima) - Convert.ToDateTime(dataAtual);
                 int distancia = diferenca.Days;
-                if (distancia <= 90 && distancia > 80)
+                if (distancia < 90 && distancia >= 80)
                 {
                     trabalhos90Dias.Add(trab);
                 }
