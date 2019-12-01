@@ -39,8 +39,8 @@
 
                         <li class="menu-title mt-2 mb-2">Controle</li><!-- /.menu-title -->
 
-                        <li class="menu-item-has-children dropdown">
-                            <a href="#" class="category-item dropdown-toggle" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false" id="trabLink"> <i class="menu-icon fa fa-laptop"></i>Trabalhos</a>
+                        <li class="category-item menu-item-has-children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false" id="trabLink"> <i class="menu-icon fa fa-laptop"></i>Trabalhos</a>
                             <ul class="sub-menu children dropdown-menu">
                                 <li><i class="fa fa-bars"></i><a href="~/Trabalhos" id="relTrabLink">Relação de trabalhos</a></li>
                                 <li><i class="fa fa-puzzle-piece"></i><a href="~/Trabalhos/Add" id="cadTrabLink">Cadastrar trabalho</a></li>
@@ -55,8 +55,8 @@
                             </ul>
                         </li>
 
-                        <li class="menu-item-has-children dropdown">
-                            <a href="#" class="category-item dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="orientLink"> <i class="menu-icon fas fa-chalkboard-teacher"></i>Orientadores</a>
+                        <li class="category-item menu-item-has-children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="orientLink"> <i class="menu-icon fas fa-chalkboard-teacher"></i>Orientadores</a>
                             <ul class="sub-menu children dropdown-menu">
                                 <li><i class="fa fa-bars"></i><a href="~/Orientadores/" id="relOrientLink">Relação de orientadores</a></li>
                                 <li><i class="fa fa-puzzle-piece"></i><a href="~/Orientadores/Add" id="cadOrientLink">Cadastrar orientador</a></li>
@@ -98,20 +98,20 @@
 
                     <div class="col-sm-12">
                         <div class="user-area dropdown float-right">
-                            <a id="welcome-link" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a id="welcomeLink" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Olá, @User.Identity.Name.
                             </a>
 
                             <div class="user-menu dropdown-menu">
 
 
-                                <button class="btn btn-link nav-link" href="#" data-toggle="modal" data-target="#modalMudarSenha"><i class="fas fa-key"></i> Alterar senha</button>
+                                <button class="btn btn-link nav-link" href="#" data-toggle="modal" data-target="#modalMudarSenha" id="alterarSenha"><i class="fas fa-key"></i> Alterar senha</button>
                                 @if (!User.Identity.Name.Equals("admin"))
                                 {
-                                    <a class="nav-link" href="~/Home/Movimentacao"><i class="fas fa-bell"></i> Movimentação</a>
+                                    <a class="nav-link" href="~/Home/Movimentacao" id="linkMovi"><i class="fas fa-bell"></i> Movimentação</a>
                                 }
 
-                                <a class="nav-link" href="@Url.Action("Sair","Conta")"><i class="fa fa-power-off"></i> Sair</a>
+                                <a class="nav-link" href="@Url.Action("Sair","Conta")" id="linkSair"><i class="fa fa-power-off"></i> Sair</a>
                             </div>
                         </div>
 
