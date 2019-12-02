@@ -34,39 +34,39 @@
                     @if (!User.Identity.Name.Equals("admin"))
                     {
                         <li class="menu-single">
-                            <a href="~/Home/Dashboard"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                            <a href="~/Home/Dashboard" id="dashLink"> <i class="menu-icon fa fa-dashboard"></i>Dashboard</a>
                         </li>
 
                         <li class="menu-title mt-2 mb-2">Controle</li><!-- /.menu-title -->
 
-                        <li class="menu-item-has-children dropdown">
-                            <a href="#" class="menu-title dropdown-toggle" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Trabalhos</a>
+                        <li class="category-item menu-item-has-children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false" id="trabLink"> <i class="menu-icon fa fa-laptop"></i>Trabalhos</a>
                             <ul class="sub-menu children dropdown-menu">
-                                <li><i class="fa fa-bars"></i><a href="~/Trabalhos">Relação de trabalhos</a></li>
-                                <li><i class="fa fa-puzzle-piece"></i><a href="~/Trabalhos/Add">Cadastrar trabalho</a></li>
+                                <li><i class="fa fa-bars"></i><a href="~/Trabalhos" id="relTrabLink">Relação de trabalhos</a></li>
+                                <li><i class="fa fa-puzzle-piece"></i><a href="~/Trabalhos/Add" id="cadTrabLink">Cadastrar trabalho</a></li>
                             </ul>
                         </li>
 
-                        <li class="menu-item-has-children dropdown">
-                            <a href="#" class="menu-title dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fas fa-user-graduate"></i>Alunos</a>
+                        <li class="category-item menu-item-has-children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="alunosLink"> <i class="menu-icon fas fa-user-graduate"></i>Alunos</a>
                             <ul class="sub-menu children dropdown-menu">
-                                <li><i class="fa fa-bars"></i><a href="~/Alunos">Relação de alunos</a></li>
-                                <li><i class="fa fa-puzzle-piece"></i><a href="~/Alunos/Add">Cadastrar aluno</a></li>
+                                <li><i class="fa fa-bars"></i><a href="~/Alunos" id="relAlunosLink">Relação de alunos</a></li>
+                                <li><i class="fa fa-puzzle-piece"></i><a href="~/Alunos/Add" id="cadAlunosLink">Cadastrar aluno</a></li>
                             </ul>
                         </li>
 
-                        <li class="menu-item-has-children dropdown">
-                            <a href="#" class="menu-title dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fas fa-chalkboard-teacher"></i>Orientadores</a>
+                        <li class="category-item menu-item-has-children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="orientLink"> <i class="menu-icon fas fa-chalkboard-teacher"></i>Orientadores</a>
                             <ul class="sub-menu children dropdown-menu">
-                                <li><i class="fa fa-bars"></i><a href="~/Orientadores/">Relação de orientadores</a></li>
-                                <li><i class="fa fa-puzzle-piece"></i><a href="~/Orientadores/Add">Cadastrar orientador</a></li>
+                                <li><i class="fa fa-bars"></i><a href="~/Orientadores/" id="relOrientLink">Relação de orientadores</a></li>
+                                <li><i class="fa fa-puzzle-piece"></i><a href="~/Orientadores/Add" id="cadOrientLink">Cadastrar orientador</a></li>
                             </ul>
                         </li>
 
                         <li class="menu-title mt-2 mb-2">Manutenção</li><!-- /.menu-title -->
 
-                        <li class="menu-single menu-turmas">
-                            <a href="~/Turmas"> <i class="menu-icon fas fa-users"></i>Turmas </a>
+                        <li class="menu-single">
+                            <a href="~/Turmas" id="turmaLink"> <i class="menu-icon fas fa-users"></i>Turmas</a>
                         </li>
                     }
 
@@ -74,10 +74,10 @@
                     {
                         <li class="menu-title mb-2">Painel do Administrador</li><!-- /.menu-title -->
                         <li class="menu-single menu-turmas">
-                            <a href="~/Conta/Index"> <i class="menu-icon fa fa-users-cog"></i>Coordenadores </a>
+                            <a href="~/Conta/Index" id="coordLink"> <i class="menu-icon fa fa-users-cog"></i>Coordenadores</a>
                         </li>
                         <li class="menu-single menu-turmas">
-                            <a href="~/Cursos/Index"> <i class="menu-icon fa fa-book-open"></i>Cursos </a>
+                            <a href="~/Cursos/Index" id="cursosLink"> <i class="menu-icon fa fa-book-open"></i>Cursos</a>
                         </li>
                     }
                 </ul>
@@ -98,20 +98,20 @@
 
                     <div class="col-sm-12">
                         <div class="user-area dropdown float-right">
-                            <a id="welcome-link" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a id="welcomeLink" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Olá, @User.Identity.Name.
                             </a>
 
                             <div class="user-menu dropdown-menu">
 
 
-                                <button class="btn btn-link nav-link" href="#" data-toggle="modal" data-target="#modalMudarSenha"><i class="fas fa-key"></i> Alterar senha</button>
+                                <button class="btn btn-link nav-link" href="#" data-toggle="modal" data-target="#modalMudarSenha" id="alterarSenha"><i class="fas fa-key"></i> Alterar senha</button>
                                 @if (!User.Identity.Name.Equals("admin"))
                                 {
-                                    <a class="nav-link" href="~/Home/Movimentacao"><i class="fas fa-bell"></i> Movimentação</a>
+                                    <a class="nav-link" href="~/Home/Movimentacao" id="linkMovi"><i class="fas fa-bell"></i> Movimentação</a>
                                 }
 
-                                    <a class="nav-link" href="@Url.Action("Sair","Conta")"><i class="fa fa-power-off"></i> Sair</a>
+                                <a class="nav-link" href="@Url.Action("Sair","Conta")" id="linkSair"><i class="fa fa-power-off"></i> Sair</a>
                             </div>
                         </div>
 
@@ -203,7 +203,7 @@
                     $('#divCheckPasswordMatch').text(verificacao)
                 }
             });
-            
+
         });
 
         function checkPasswordMatch() {

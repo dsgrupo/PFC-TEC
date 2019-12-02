@@ -3,20 +3,6 @@
     border-color: #003b85;
 }
 
-.menu-single {
-    color: #9496a1;
-    clear: both;
-    display: block;
-    font-family: 'Open Sans';
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 50px;
-    text-transform: uppercase;
-    width: 100%;
-}
-.menu-turmas {
-    margin-top:-5px;
-}
 .app-header {
     border-left: 2px solid#003b85;
     padding-left: 30px;
@@ -35,6 +21,10 @@
 }
 .table-responsive {
     display: inline-table;
+}
+
+.category-item {
+    border-bottom: 1px dashed white;
 }
 /*-----GENERATED CSS-----*/
 body {
@@ -71,7 +61,7 @@ button {
     transition: all 0.25s ease;
 }
 
-#welcome-link {
+#welcomeLink {
     color: #003b85;
 }
 
