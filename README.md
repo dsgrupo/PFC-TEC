@@ -1,9 +1,9 @@
-<p align="center">
+﻿<p align="center">
   <img src="https://raw.githubusercontent.com/CorreiaEduardo/PFC-TEC/master/large-logo.png"/>
 </p>
 <hr/>
 <blockquote>
-O primeiro módulo do projeto final do curso técnico.
+O terceito módulo do projeto final do curso técnico.
 </blockquote>
 
 ### Conteúdos abordados
@@ -22,6 +22,7 @@ O primeiro módulo do projeto final do curso técnico.
 ### <a name="Desenvolvedores"></a>Desenvolvedores
 * "Eduardo Correia" <correiaeduardojr@gmail.com>
 * "Felipe Bastos" <felipepradobastos@gmail.com>
+* "Felipe Neiva" <felipec798@gmail.com>
 
 ### <a name="Funcionalidades"></a>Funcionalidades
 - [x] Gerenciar trabalhos (Criar, atualizar, excluir, buscar com filtro);
@@ -31,7 +32,8 @@ O primeiro módulo do projeto final do curso técnico.
 - [x] Gerenciar coordenadores (Criar, atualizar, excluir, buscar com filtro);
 - [x] Gerenciar cursos (Criar, atualizar, excluir, buscar com filtro);
 - [x] Obter resumo dos trabalhos a serem apresentados, como listas organizadas e categorizadas por proximidade da data final;
-- [x] Obter resumo das movimentações de status dos trabalhos a serem apresentados, como listas organizadas e categorizadas por proximidade da data final.
+- [x] Obter resumo das movimentações de status dos trabalhos a serem apresentados, como listas organizadas e categorizadas por proximidade da data final;
+- [x] Obter resumo dos trabalhos em zona crítica, através de uma notificação enviada por e-mail.
 
 ### <a name="Licença"></a>Licença
 <p><strong>MIT</strong> - "A short and simple permissive license with conditions only requiring preservation of copyright and license notices. Licensed works, modifications, and larger works may be distributed under different terms and without source code."</p>
